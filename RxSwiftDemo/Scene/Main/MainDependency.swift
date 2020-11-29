@@ -8,17 +8,14 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 // MARK: - Dependency (for MainViewController)
 extension MainViewController
 {
     struct Dependency
     {
-        /* example: 
-        var viewType: MainViewType
-        var modules: AppDependency.Modules
-        var isCallFromSplash: Bool = false
-        */
+        var mainViewControllerDidSelectSignal: Signal<Void>
     }
 
     struct InnerDependency

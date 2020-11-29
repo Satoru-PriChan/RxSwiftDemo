@@ -12,17 +12,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    private var appCoordinator: AppCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         self.window = UIWindow()
-        let dependency = MainViewController.Dependency()
-        let vc = MainViewController.make(dependency: dependency)
-            
-        self.window?.rootViewController = vc
-        self.window?.makeKeyAndVisible()
+        let appCoordinator = AppCoordinator(window: window!)
         
+        appCoordinator.start()
+        self.appCoordinator = appCoordinator
         return true
     }
 }
